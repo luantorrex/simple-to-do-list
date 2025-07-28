@@ -71,7 +71,7 @@ function saveBoardState() {
 }
 
 function switchCategory(name) {
-    if (currentCategory) {
+    if (currentCategory && currentCategory !== name) {
         saveBoardState();
     }
     currentCategory = name;
