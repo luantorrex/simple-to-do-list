@@ -42,4 +42,13 @@ header {
     margin-bottom: 0.5rem;
     padding: 0.5rem;
     border-radius: 3px;
+    cursor: grab;
+}
+
+.list li.dragging {
+    opacity: 0.5;
+}
+
+.list.drag-over {
+    background: #ebf8ff;
 }
