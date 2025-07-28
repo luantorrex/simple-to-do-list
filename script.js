@@ -2,6 +2,7 @@ let draggedItem = null;
 let categories = {};
 let currentCategory = null;
 let defaultBoardState = [];
+let emptyBoardTemplate = [];
 
 function createTaskLi(text) {
     const li = document.createElement('li');
@@ -73,7 +74,7 @@ function switchCategory(name) {
     currentCategory = name;
     const board = document.querySelector('main.board');
     board.innerHTML = '';
-    const data = categories[name] || JSON.parse(JSON.stringify(defaultBoardState));
+    const data = categories[name] || JSON.parse(JSON.stringify(emptyBoardTemplate));
     categories[name] = data;
     data.forEach(listData => board.appendChild(createList(listData)));
     highlightActiveCategory();
@@ -161,6 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
         heading: section.querySelector('h2').textContent,
         items: Array.from(section.querySelectorAll('li')).map(li => li.textContent)
     }));
+    emptyBoardTemplate = defaultBoardState.map(list => ({
+        heading: list.heading,
+        items: []
+    }));
 
     categories = JSON.parse(localStorage.getItem('categories')) || { 'Default': JSON.parse(JSON.stringify(defaultBoardState)) };
     currentCategory = localStorage.getItem('selectedCategory') || 'Default';
@@ -172,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const input = document.getElementById('new-category-input');
         const name = input.value.trim();
         if (name && !categories[name]) {
-            categories[name] = JSON.parse(JSON.stringify(defaultBoardState));
+            categories[name] = JSON.parse(JSON.stringify(emptyBoardTemplate));
             renderCategoryList();
             switchCategory(name);
             input.value = '';
