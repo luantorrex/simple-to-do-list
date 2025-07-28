@@ -14,6 +14,6 @@ This project aims to evolve from a simple list into a lightweight Trello-like bo
 
 1. Fork this repository.
 2. Clone it locally.
-3. Follow upcoming documentation for running the project once the code base grows.
+3. Open `index.html` in your browser to view a very simple board built with only HTML and CSS.
 
 
