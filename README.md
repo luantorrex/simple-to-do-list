@@ -19,6 +19,6 @@ This project aims to evolve from a simple list into a lightweight Trello-like bo
 
 ## Categories
 
-You can create multiple categories from the sidebar on the left. Each category has its own board with the same layout and functionality. All categories and tasks are persisted in your browser's cache.
+You can create multiple categories from the sidebar on the left. Each category has its own board with the same layout and functionality. You can also rename or delete categories using the buttons next to each name. All categories and tasks are persisted in your browser's cache.
 
 

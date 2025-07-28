@@ -86,15 +86,71 @@ function highlightActiveCategory() {
     });
 }
 
+function renameCategory(oldName) {
+    const newName = prompt('Edit category name:', oldName);
+    if (!newName || newName === oldName) return;
+    if (categories[newName]) {
+        alert('Category already exists');
+        return;
+    }
+    categories[newName] = categories[oldName];
+    delete categories[oldName];
+    if (currentCategory === oldName) {
+        currentCategory = newName;
+    }
+    renderCategoryList();
+    switchCategory(currentCategory);
+    saveCategories();
+}
+
+function deleteCategory(name) {
+    if (Object.keys(categories).length === 1) {
+        alert('Cannot delete the last category.');
+        return;
+    }
+    if (confirm(`Delete category "${name}"?`)) {
+        delete categories[name];
+        if (currentCategory === name) {
+            currentCategory = Object.keys(categories)[0];
+        }
+        renderCategoryList();
+        switchCategory(currentCategory);
+        saveCategories();
+    }
+}
+
 function renderCategoryList() {
     const ul = document.getElementById('category-list');
     ul.innerHTML = '';
     Object.keys(categories).forEach(name => {
         const li = document.createElement('li');
-        li.textContent = name;
         li.dataset.name = name;
         if (name === currentCategory) li.classList.add('active');
-        li.addEventListener('click', () => switchCategory(name));
+
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'category-name';
+        nameSpan.textContent = name;
+        nameSpan.addEventListener('click', () => switchCategory(name));
+        li.appendChild(nameSpan);
+
+        const editBtn = document.createElement('button');
+        editBtn.textContent = 'Edit';
+        editBtn.className = 'category-edit-btn';
+        editBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            renameCategory(name);
+        });
+        li.appendChild(editBtn);
+
+        const delBtn = document.createElement('button');
+        delBtn.textContent = 'Delete';
+        delBtn.className = 'category-delete-btn';
+        delBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            deleteCategory(name);
+        });
+        li.appendChild(delBtn);
+
         ul.appendChild(li);
     });
 }

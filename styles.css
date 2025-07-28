@@ -35,6 +35,17 @@ header {
     padding: 0.5rem;
     border-radius: 4px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.category-panel li .category-name {
+    flex: 1;
+}
+
+.category-panel li button {
+    margin-left: 0.25rem;
 }
 
 .category-panel li.active {
