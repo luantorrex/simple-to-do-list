@@ -7,7 +7,7 @@ This project aims to evolve from a simple list into a lightweight Trello-like bo
 - [ ] Create multiple lists to organize work
 - [ ] Add and edit task cards
 - [ ] Move cards between lists to track progress
-- [ ] Persist data between sessions
+- [x] Persist data between sessions
 - [ ] Provide an easy-to-use interface
 
 ## Getting started
@@ -15,5 +15,6 @@ This project aims to evolve from a simple list into a lightweight Trello-like bo
 1. Fork this repository.
 2. Clone it locally.
 3. Open `index.html` in your browser to view the board. You can drag task cards between lists to track progress.
+4. Your board will automatically save to your browser using `localStorage`, so you can pick up where you left off on your next visit.
 
 
