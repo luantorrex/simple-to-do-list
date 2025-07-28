@@ -35,22 +35,6 @@ function createList(listData) {
     });
     section.appendChild(ul);
 
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.placeholder = 'New task';
-    const addBtn = document.createElement('button');
-    addBtn.textContent = 'Add';
-    addBtn.className = 'add-btn';
-    addBtn.addEventListener('click', () => {
-        const value = input.value.trim();
-        if (value) {
-            ul.appendChild(createTaskLi(value));
-            input.value = '';
-            saveBoardState();
-        }
-    });
-    section.appendChild(input);
-    section.appendChild(addBtn);
 
     section.addEventListener('dragover', handleDragOver);
     section.addEventListener('dragenter', handleDragEnter);
@@ -134,4 +118,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!loaded) {
         initializeExistingBoard();
     }
+
+    const input = document.getElementById('new-task-input');
+    const addBtn = document.getElementById('add-task-btn');
+    addBtn.addEventListener('click', () => {
+        const value = input.value.trim();
+        if (value) {
+            const firstList = document.querySelector('.board .list');
+            if (firstList) {
+                firstList.querySelector('ul').appendChild(createTaskLi(value));
+                input.value = '';
+                saveBoardState();
+            }
+        }
+    });
 });

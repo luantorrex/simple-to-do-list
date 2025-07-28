@@ -12,11 +12,27 @@ header {
     text-align: center;
 }
 
+.board-container {
+    width: max-content;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.add-task-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.add-task-bar input[type="text"] {
+    flex: 1;
+    box-sizing: border-box;
+}
+
 .board {
     display: flex;
     gap: 1rem;
-    padding: 1rem;
-    justify-content: center;
 }
 
 .list {
@@ -56,16 +72,6 @@ header {
     background: #ebf8ff;
 }
 
-.list input[type="text"] {
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 0.5rem;
-}
-
-.list .add-btn {
-    width: 100%;
-    margin-top: 0.25rem;
-}
 
 .list .delete-btn {
     margin-left: 0.5rem;
