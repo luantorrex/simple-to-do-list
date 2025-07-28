@@ -5,7 +5,7 @@ This project aims to evolve from a simple list into a lightweight Trello-like bo
 ## Goals
 
 - [ ] Create multiple lists to organize work
-- [ ] Add and edit task cards
+- [x] Add new task cards and delete them
 - [ ] Move cards between lists to track progress
 - [x] Persist data between sessions
 - [ ] Provide an easy-to-use interface
