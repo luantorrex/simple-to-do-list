@@ -51,7 +51,10 @@ function gatherBoardState() {
     const lists = document.querySelectorAll('.list');
     return Array.from(lists).map(list => ({
         heading: list.querySelector('h2').textContent,
-        items: Array.from(list.querySelectorAll('li span')).map(span => span.textContent)
+        items: Array.from(list.querySelectorAll('li')).map(li => {
+            const span = li.querySelector('span');
+            return span ? span.textContent : li.textContent;
+        })
     }));
 }
 
