@@ -17,4 +17,8 @@ This project aims to evolve from a simple list into a lightweight Trello-like bo
 3. Open `index.html` in your browser to view the board. You can drag task cards between lists to track progress.
 4. Your board will automatically save to your browser using `localStorage`, so you can pick up where you left off on your next visit.
 
+## Categories
+
+You can create multiple categories from the sidebar on the left. Each category has its own board with the same layout and functionality. All categories and tasks are persisted in your browser's cache.
+
 

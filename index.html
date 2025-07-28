@@ -10,12 +10,19 @@
     <header>
         <h1>Simple To-Do Board</h1>
     </header>
-    <div class="board-container">
-        <div class="add-task-bar">
-            <input id="new-task-input" type="text" placeholder="New task">
-            <button id="add-task-btn">Add</button>
-        </div>
-        <main class="board">
+    <div class="app">
+        <nav class="category-panel">
+            <h2>Categories</h2>
+            <ul id="category-list"></ul>
+            <input id="new-category-input" type="text" placeholder="New category">
+            <button id="add-category-btn">Add</button>
+        </nav>
+        <div class="board-container">
+            <div class="add-task-bar">
+                <input id="new-task-input" type="text" placeholder="New task">
+                <button id="add-task-btn">Add</button>
+            </div>
+            <main class="board">
         <section class="list">
             <h2>To Do</h2>
             <ul>
@@ -38,6 +45,7 @@
             </ul>
         </section>
     </main>
+    </div>
     </div>
     <script src="script.js"></script>
 </body>
